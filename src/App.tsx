@@ -1,10 +1,13 @@
 import React from 'react';
 
-import JakeHall from './components/JakeHall';
+import Demo from './components/Demo';
+// import DemoBlade from './components/DemoBlade';
+// import DemoHashConnect from './components/DemoHashConnect';
 
 const App: React.FC = () => {
     return (
-        <JakeHall />
+        <Demo />
+        // <DemoHashConnect />
     );
 };
 

@@ -38,9 +38,14 @@ export default class WalletConnector extends Component<Props, State> {
         // bladeSigner object can now be used.
         const accountId = bladeSigner.getAccountId();
 
-        this.setState({ accountId: accountId })
+        // this.setState({ accountId: accountId })
 
         console.log({accountId});
+
+
+
+
+
     }
 
 
