@@ -20,6 +20,7 @@
   "author": "GaryDu",
   "license": "ISC",
   "dependencies": {
+    "@bladelabs/blade-web3.js": "^0.10.2",
     "@hashgraph/proto": "^2.12.0",
     "@hashgraph/sdk": "^2.19.1",
     "@types/jest": "29.2.4",
@@ -28,6 +29,7 @@
     "@types/react-dom": "18.0.9",
     "bootstrap": "^4.3.1",
     "buffer": "^6.0.3",
+    "dcent-web-connector": "^0.14.0",
     "hashconnect": "^0.2.4",
     "protobufjs": "^7.2.2",
     "react": "^18.2.0",

@@ -66,31 +66,31 @@ export default class Demo extends Component<Props, State> {
 
 
 
-
-
-        const {signingData, payload} = await fetch('http://localhost:8443/getPayload').then(res => res.json());
-        //signingData == {"serverSignature":"f558951c2715266512eec88d300d52a35976d52261aed4e9f942fb4c06dab4e3860692cc51fd0c5eed46a408d28467615ae15c35287046874766d76f35300b5b","serverSigningAccount":"0.0.8281"}
-        //payload == {"url":"d084-178-137-139-12.ngrok-free.app","data":{"token":"fufhr9e84hf9w8fehw9e8fhwo9e8fw938fw3o98fhjw3of"}}
-        console.log(signingData, payload);
-
-        const handshakeResult = await this.bladeSigner.handshake(
-            signingData.serverSigningAccount,
-            signingData.serverSignature,
-            payload
-        )
-        // handshakeResult = {"originalPayload":{"url":"d084-178-137-139-12.ngrok-free.app","data":{"token":"fufhr9e84hf9w8fehw9e8fhwo9e8fw938fw3o98fhjw3of"}},"serverSignature":{"publicKey":"0275ef107b354472a43421d777ba8c7c079e399c17eef1ce2523a1bf52fcb50bbe","signature":"f558951c2715266512eec88d300d52a35976d52261aed4e9f942fb4c06dab4e3860692cc51fd0c5eed46a408d28467615ae15c35287046874766d76f35300b5b","accountId":"0.0.8281"},"userSignature":{"publicKey":"0326f941301c363f406b81e67df09f85851cc17a379af8a2e8a6c22fb84f71bc2d","signature":"8576bf9f6e3b7d45499d9be4f2afbb922b0d04af8b07b42fac5ef26a593fd5fbde7d2194f810266d28c9c2fc8830039aa9a0bc504e3034193a7c3ef7589fe33b","accountId":"0.0.8299"}}
-
-        const { authMessage } = await fetch('http://localhost:8443/getAuth', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(handshakeResult)
-        }).then(res => res.json());
-
-        // {"authMessage":"Successfully authenticated"}
-        console.log("authMessage:", authMessage)
+        // SECURE HANDSHAKE
+        //
+        // const {signingData, payload} = await fetch('http://localhost:8443/getPayload').then(res => res.json());
+        // //signingData == {"serverSignature":"f558951c2715266512eec88d300d52a35976d52261aed4e9f942fb4c06dab4e3860692cc51fd0c5eed46a408d28467615ae15c35287046874766d76f35300b5b","serverSigningAccount":"0.0.8281"}
+        // //payload == {"url":"d084-178-137-139-12.ngrok-free.app","data":{"token":"fufhr9e84hf9w8fehw9e8fhwo9e8fw938fw3o98fhjw3of"}}
+        // console.log(signingData, payload);
+        //
+        // const handshakeResult = await this.bladeSigner.handshake(
+        //     signingData.serverSigningAccount,
+        //     signingData.serverSignature,
+        //     payload
+        // )
+        // // handshakeResult = {"originalPayload":{"url":"d084-178-137-139-12.ngrok-free.app","data":{"token":"fufhr9e84hf9w8fehw9e8fhwo9e8fw938fw3o98fhjw3of"}},"serverSignature":{"publicKey":"0275ef107b354472a43421d777ba8c7c079e399c17eef1ce2523a1bf52fcb50bbe","signature":"f558951c2715266512eec88d300d52a35976d52261aed4e9f942fb4c06dab4e3860692cc51fd0c5eed46a408d28467615ae15c35287046874766d76f35300b5b","accountId":"0.0.8281"},"userSignature":{"publicKey":"0326f941301c363f406b81e67df09f85851cc17a379af8a2e8a6c22fb84f71bc2d","signature":"8576bf9f6e3b7d45499d9be4f2afbb922b0d04af8b07b42fac5ef26a593fd5fbde7d2194f810266d28c9c2fc8830039aa9a0bc504e3034193a7c3ef7589fe33b","accountId":"0.0.8299"}}
+        //
+        // const { authMessage } = await fetch('http://localhost:8443/getAuth', {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(handshakeResult)
+        // }).then(res => res.json());
+        //
+        // // {"authMessage":"Successfully authenticated"}
+        // console.log("authMessage:", authMessage)
     }
 
 
